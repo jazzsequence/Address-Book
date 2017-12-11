@@ -55,18 +55,6 @@ function register_taxonomies() {
 	);
 }
 
-function cmb2() {
-	$prefix = '_ab_';
 
-	$cmb = new_cmb2_box( array(
-		'id'           => $prefix . 'metabox',
-		'title'        => __( 'Address', 'address-book' ),
-		'object_types' => array( 'ab_address' ),
-	) );
 
-	$cmb->add_field( array(
-		'name'       => __( 'Email address', 'address-book' ),
-		'id'         => $prefix . 'email',
-		'type'       => 'text_email',
-	) );
 }

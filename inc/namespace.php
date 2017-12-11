@@ -17,7 +17,7 @@ function bootstrap() {
 
 	add_action( 'init',      __NAMESPACE__ . '\\CPT\\register_address' );
 	add_action( 'init',      __NAMESPACE__ . '\\CPT\\register_taxonomies' );
-	add_action( 'cmb2_init', __NAMESPACE__ . '\\CPT\\cmb2' );
+	add_action( 'cmb2_init',        __NAMESPACE__ . '\\CMB2\\address_meta' );
 }
 
 /**
