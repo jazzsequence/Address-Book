@@ -18,3 +18,34 @@ function register_address() {
 		]
 	);
 }
+
+/**
+ * Registers the Family and Relationship taxonomies.
+ *
+ * @since 0.1
+ */
+function register_taxonomies() {
+	register_extended_taxonomy( 'ab_family', 'ab_address', [
+			// 'meta_box'      => 'simple', // Can use 'radio', 'dropdown', or a callback function.
+			'dashboard_glance' => true,   // Show this taxonomy in the 'At a Glance' widget.
+			// Custom columns.
+			'admin_cols'    => [],
+		], [
+			'singular'      => esc_html__( 'Family', 'address-book' ),
+			'plural'        => esc_html__( 'Families', 'address-book' ),
+			'slug'          => 'family',
+		]
+	);
+
+	register_extended_taxonomy( 'relationship', 'ab_address', [
+			'meta_box'      => 'dropdown', // Can use 'radio', 'dropdown', or a callback function.
+			'dashboard_glance' => false,   // Show this taxonomy in the 'At a Glance' widget.
+			// Custom columns.
+			'admin_cols'    => [],
+		], [
+			'singular'      => esc_html__( 'Relationship', 'address-book' ),
+			'plural'        => esc_html__( 'Relationships', 'address-book' ),
+			'slug'          => 'relationship',
+		]
+	);
+}
