@@ -15,7 +15,7 @@ namespace AddressBook;
 function bootstrap() {
 	spl_autoload_register( __NAMESPACE__ . '\\autoload' );
 
-	// Add all your plugin hooks here.
+	add_action( 'init', __NAMESPACE__ . '\\CPT\\register_address' );
 }
 
 /**
