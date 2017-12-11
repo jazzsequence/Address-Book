@@ -72,5 +72,28 @@ function change_title_placeholder( $title ) {
 	return esc_html__( 'Name', 'address-book' );
 }
 
+/**
+ * Save the old address metadata to the revision.
+ *
+ * @param  int    $post_id The post ID.
+ * @param  object $post    The post object.
+ * @link   https://johnblackbourn.com/post-meta-revisions-wordpress/
+ * @since  0.1
+ */
+function save_old_address( $post_id, $post ) {
+	$parent_id = wp_is_post_revision( $post_id );
 
+	if ( $parent_id ) {
+		$parent      = get_post( $parent_id );
+		$meta_values = [
+			'_ab_mailing_address' => get_post_meta( $parent->ID, '_ab_mailing_address', true ),
+			'_ab_email'           => get_post_meta( $parent->ID, '_ab_email', true ),
+		];
+
+		foreach ( $meta_values as $key => $value ) {
+			if ( false !== $value ) {
+				add_metadata( 'post', $post_id, $key, $value );
+			}
+		}
+	}
 }

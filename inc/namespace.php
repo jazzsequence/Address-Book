@@ -17,6 +17,7 @@ function bootstrap() {
 
 	add_action( 'init',             __NAMESPACE__ . '\\CPT\\register_address' );
 	add_action( 'init',             __NAMESPACE__ . '\\CPT\\register_taxonomies' );
+	add_action( 'save_post',        __NAMESPACE__ . '\\CPT\\save_old_address' );
 	add_action( 'cmb2_init',        __NAMESPACE__ . '\\CMB2\\address_meta' );
 	add_filter( 'enter_title_here', __NAMESPACE__ . '\\CPT\\change_title_placeholder' );
 }
