@@ -12,6 +12,8 @@
 
 namespace AddressBook;
 
+require_once __DIR__ . '/vendor/johnbillion/extended-cpts/extended-cpts.php';
+
 require_once __DIR__ . '/inc/namespace.php';
 
 // Kick it off.
