@@ -55,6 +55,22 @@ function register_taxonomies() {
 	);
 }
 
+/**
+ * Change title placeholder text to "Name" for addresses.
+ *
+ * @param  string $title The title placeholder.
+ * @return string        The updated title placeholder
+ * @since  0.1
+ */
+function change_title_placeholder( $title ) {
+	$post_type = get_post_type();
+
+	if ( ! 'ab_address' === $post_type ) {
+		return $title;
+	}
+
+	return esc_html__( 'Name', 'address-book' );
+}
 
 
 }

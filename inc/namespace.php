@@ -15,9 +15,10 @@ namespace AddressBook;
 function bootstrap() {
 	spl_autoload_register( __NAMESPACE__ . '\\autoload' );
 
-	add_action( 'init',      __NAMESPACE__ . '\\CPT\\register_address' );
-	add_action( 'init',      __NAMESPACE__ . '\\CPT\\register_taxonomies' );
+	add_action( 'init',             __NAMESPACE__ . '\\CPT\\register_address' );
+	add_action( 'init',             __NAMESPACE__ . '\\CPT\\register_taxonomies' );
 	add_action( 'cmb2_init',        __NAMESPACE__ . '\\CMB2\\address_meta' );
+	add_filter( 'enter_title_here', __NAMESPACE__ . '\\CPT\\change_title_placeholder' );
 }
 
 /**
