@@ -7,6 +7,11 @@
 
 namespace AddressBook\CPT;
 
+/**
+ * Registers the Address post type.
+ *
+ * @since 0.1
+ */
 function register_address() {
 	register_extended_post_type( 'ab_address', [
 			'menu_icon' => 'dashicons-id',
