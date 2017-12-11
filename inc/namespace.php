@@ -1,9 +1,11 @@
 <?php
 /**
  * Address Book
+ *
+ * @package AddressBook
  */
 
-namespace AddressBook\AddressBook;
+namespace AddressBook;
 
 /**
  * Bootstrap the plugin.
