@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4fe906979e6eb7478eff636afb7a191",
+    "content-hash": "8ecef502b71694c0724a9aa6c20a00e5",
     "packages": [
         {
             "name": "johnbillion/extended-cpts",
@@ -51,6 +51,63 @@
             "description": "A library which provides extended functionality to WordPress custom post types and taxonomies.",
             "homepage": "https://github.com/johnbillion/extended-cpts/",
             "time": "2017-11-01T16:56:21+00:00"
+        },
+        {
+            "name": "webdevstudios/cmb2",
+            "version": "v2.2.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CMB2/CMB2.git",
+                "reference": "b1a7e8fb9f0634337b390a098f0a1f70f0f64085"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/b1a7e8fb9f0634337b390a098f0a1f70f0f64085",
+                "reference": "b1a7e8fb9f0634337b390a098f0a1f70f0f64085",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">5.2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "WebDevStudios",
+                    "email": "contact@webdevstudios.com",
+                    "homepage": "https://github.com/WebDevStudios",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Justin Sternberg",
+                    "email": "justin@dsgnwrks.pro",
+                    "homepage": "https://dsgnwrks.pro",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Zao",
+                    "email": "office@zao.com",
+                    "homepage": "http://zao.is",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CMB2 is a metabox, custom fields, and forms library for WordPress that will blow your mind.",
+            "homepage": "https://github.com/CMB2/CMB2",
+            "keywords": [
+                "metabox",
+                "plugin",
+                "wordpress"
+            ],
+            "time": "2017-11-27T20:49:15+00:00"
         }
     ],
     "packages-dev": [],

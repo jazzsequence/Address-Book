@@ -1,5 +1,6 @@
 {
     "require": {
-        "johnbillion/extended-cpts": "^4.2"
+        "johnbillion/extended-cpts": "^4.2",
+        "WebDevStudios/CMB2": "v2.2.6.2"
     }
 }
