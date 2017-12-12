@@ -111,7 +111,7 @@ function get_old_meta( $meta_key, $revisions, $post_id ) {
 		}
 	}
 
-	return clean_old_data( $old_things );
+	return clean_old_data( $current_thing, $old_things );
 }
 
 /**
