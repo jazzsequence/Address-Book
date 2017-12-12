@@ -31,7 +31,7 @@ function address_meta() {
 	$cmb->add_field( [
 		'name'       => __( 'Mailing Address', 'address-book' ),
 		'id'         => $prefix . 'mailing_address',
-		'type'       => 'address',
+		'type'       => 'textarea_small',
 	] );
 
 	$cmb->add_field( [
