@@ -67,28 +67,12 @@ function past_addresses() {
 }
 
 function cmb2_render_address_history( $field, $escaped_value, $object_id ) {
-	$revisions = wp_get_post_revisions( $object_id );
-	$current_email = get_post_meta( $object_id, '_ab_email', true );
-	$current_address = get_post_meta( $object_id, '_ab_mailing_address', true );
-	$old_emails = $current_email ? [ $current_email ] : [];
-	$old_addresses = $current_address ? [ $current_address ] : [];
-	foreach ( $revisions as $post ) {
-		$email = get_post_meta( $post->ID, '_ab_email', true );
-		if ( $email && empty( $old_emails || ! in_array( $email, $old_emails ) ) ) {
-			$old_emails[] = $email;
-		}
-		unset( $old_emails[ $current_email ] );
-	}
+	$revisions     = wp_get_post_revisions( $object_id );
+	$old_emails    = get_old_meta( '_ab_email', $revisions, $object_id );
+	$old_addresses = get_old_meta( '_ab_mailing_address', $revisions, $object_id );
 
-	foreach ( $revisions as $post ) {
-		$address = get_post_meta( $post->ID, '_ab_mailing_address', true );
-		if ( $address && empty( $old_addresses ) || ! in_array( $address, $old_addresses ) ) {
-			$old_addresses[] = $address;
-		}
-		unset( $old_addresses[ $current_address ] );
-	}
-var_dump($old_addresses); var_dump($old_emails);
-	if ( ! empty( $old_emails ) ) {
+var_dump($old_addresses);
+	if ( $old_emails ) {
 		echo '<p>';
 		echo '<strong>Old email addresses:</strong><br />';
 		foreach ( $old_emails as $email ) {
@@ -105,4 +89,28 @@ var_dump($old_addresses); var_dump($old_emails);
 		}
 		echo '</p>';
 	}
+}
+
+function get_old_meta( $meta_key, $revisions, $post_id ) {
+	$current_thing = get_post_meta( $post_id, $meta_key, true );
+	$old_things    = $current_thing ? [ $current_thing ] : false;
+
+	foreach ( $revisions as $post ) {
+		$thing = get_post_meta( $post->ID, $meta_key, true );
+		if ( $thing && ( empty( $old_things ) || ! in_array( $thing, $old_things ) ) ) {
+			$old_things[] = $thing;
+		}
+	}
+
+	return clean_old_data( $old_things );
+}
+
+function clean_old_data( $current_thing, $old_things ) {
+	$old_things = array_filter( $old_things );
+	$index      = array_search( $current_thing, $old_things );
+	if ( false !== $index ) {
+		unset( $old_things[ $index ] );
+	}
+
+	return $old_things;
 }
