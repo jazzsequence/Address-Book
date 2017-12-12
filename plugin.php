@@ -16,6 +16,7 @@ require_once __DIR__ . '/vendor/johnbillion/extended-cpts/extended-cpts.php';
 
 require_once __DIR__ . '/inc/namespace.php';
 require_once __DIR__ . '/inc/cpt/namespace.php';
+require_once __DIR__ . '/inc/cmb/namespace.php';
 
 // Kick it off.
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\bootstrap' );

@@ -19,6 +19,8 @@ function bootstrap() {
 	add_action( 'init',             __NAMESPACE__ . '\\CPT\\register_taxonomies' );
 	add_action( 'save_post',        __NAMESPACE__ . '\\CPT\\save_old_address' );
 	add_action( 'cmb2_init',        __NAMESPACE__ . '\\CMB2\\address_meta' );
+	add_action( 'cmb2_init',        __NAMESPACE__ . '\\CMB2\\past_addresses' );
+	add_action( 'cmb2_render_address_history', __NAMESPACE__ . '\\CMB2\\cmb2_render_address_history', 10, 3 );
 	add_filter( 'enter_title_here', __NAMESPACE__ . '\\CPT\\change_title_placeholder' );
 }
 
