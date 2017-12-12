@@ -68,27 +68,9 @@ function past_addresses() {
 
 function cmb2_render_address_history( $field, $escaped_value, $object_id ) {
 	$revisions     = wp_get_post_revisions( $object_id );
-	$old_emails    = get_old_meta( '_ab_email', $revisions, $object_id );
-	$old_addresses = get_old_meta( '_ab_mailing_address', $revisions, $object_id );
 
-var_dump($old_addresses);
-	if ( $old_emails ) {
-		echo '<p>';
-		echo '<strong>Old email addresses:</strong><br />';
-		foreach ( $old_emails as $email ) {
-			echo $email . '<br />';
-		}
-		echo '</p>';
-	}
-
-	if ( ! empty( $old_addresses ) ) {
-		echo '<p>';
-		echo '<strong>Old addresses:</strong><br />';
-		foreach ( $old_addresses as $address ) {
-			echo wpautop( $address );
-		}
-		echo '</p>';
-	}
+	render_old_emails( get_old_meta( '_ab_email', $revisions, $object_id ) );
+	render_old_addresses( get_old_meta( '_ab_mailing_address', $revisions, $object_id ) );
 }
 
 /**
