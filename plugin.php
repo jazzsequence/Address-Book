@@ -6,6 +6,7 @@
  * Author: Chris Reynolds
  * Author URI: https://chrisreynolds.io
  * License: GPLv2
+ * Version: 0.1.1
  *
  * @package AddressBook
  */
