@@ -50,9 +50,17 @@ function address_meta() {
 function past_addresses() {
 	$prefix = '_ab_';
 
-	$cmb = new_cmb2_box( [
-		'id'           => $prefix . 'metabox',
-		'title'        => __( 'Former Addresses', 'address-book' ),
-		'object_types' => [ 'ab_address' ],
-	] );
+	if ( ! empty( $_GET['post'] ) && wp_get_post_revisions( wp_unslash( absint( $_GET['post'] ) ) ) ) {
+		$cmb = new_cmb2_box( [
+			'id'           => $prefix . 'old_addresses',
+			'title'        => __( 'Former Addresses', 'address-book' ),
+			'object_types' => [ 'ab_address' ],
+		] );
+
+		$cmb->add_field( [
+			'name'       => __( 'Old addresses', 'address-book' ),
+			'id'         => $prefix . 'old_addresses',
+			'type'       => 'address_history',
+		] );
+	}
 }
