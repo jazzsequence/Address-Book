@@ -131,3 +131,51 @@ function clean_old_data( $current_thing, $old_things ) {
 
 	return $old_things;
 }
+
+function render_old_emails( $emails ) {
+	$count = count( $emails );
+	$label = __( 'Past email addresses', 'address-book' );
+
+	ob_start(); ?>
+		<div class="old-email-addresses" id="address-<?php the_ID(); ?>-old-emails">
+			<label><?php echo esc_html( $label ); ?></label>
+			<span class="old-email-addresses-count">
+				<?php
+				// Translators: %d is the number of old email addresses.
+				echo esc_html( sprintf( _n( '%d former email address found.', '%d former email addresses found.', $count, 'address-book' ), $count ) );
+				?>
+			</span>
+			<ul class="email-address-list">
+				<?php foreach ( $emails as $email ) : ?>
+					<li><?php echo esc_html( $email ); ?></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	<?php
+	echo wp_kses_post( ob_get_clean() );
+}
+
+function render_old_addresses( $addresses ) {
+	$count = count( $addresses );
+	$label = __( 'Past addresses', 'address-book' );
+
+	ob_start(); ?>
+		<div class="old-addresses" id="address-<?php the_ID(); ?>-old-addresses">
+			<label><?php echo esc_html( $label ); ?></label>
+			<span class="old-addresses-count">
+				<?php
+				// Translators: %d is the number of old addresses.
+				echo esc_html( sprintf( _n( '%d former address found.', '%d former addresses found.', $count, 'address-book' ), $count ) );
+				?>
+			</span>
+			<div class="address-list">
+				<?php foreach ( $addresses as $address ) : ?>
+					<address>
+						<?php echo wp_kses_post( wpautop( $address ) ); ?>
+					</address>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	<?php
+	echo wp_kses_post( ob_get_clean() );
+}
