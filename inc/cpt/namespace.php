@@ -72,6 +72,13 @@ function change_title_placeholder( $title ) {
 	return esc_html__( 'Name', 'address-book' );
 }
 
+/**
+ * Add the past email and mailing address meta fields to address revisions.
+ *
+ * @param  array $fields The array of meta fields saved.
+ * @return array         The updated array of meta fields saved.
+ * @since  0.1
+ */
 function old_address_revision_fields( $fields ) {
 	return array_merge( $fields, [
 		'_ab_mailing_address' => esc_html__( 'Mailing Address', 'address-book' ),
