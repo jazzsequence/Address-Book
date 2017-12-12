@@ -64,3 +64,44 @@ function past_addresses() {
 		] );
 	}
 }
+
+function cmb2_render_address_history( $field, $escaped_value, $object_id ) {
+	$revisions = wp_get_post_revisions( $object_id );
+	$current_email = get_post_meta( $object_id, '_ab_email', true );
+	$current_address = get_post_meta( $object_id, '_ab_mailing_address', true );
+	$old_emails = $current_email ? [ $current_email ] : [];
+	$old_addresses = $current_address ? [ $current_address ] : [];
+	foreach ( $revisions as $post ) {
+		$email = get_post_meta( $post->ID, '_ab_email', true );
+		if ( $email && empty( $old_emails || ! in_array( $email, $old_emails ) ) ) {
+			$old_emails[] = $email;
+		}
+		unset( $old_emails[ $current_email ] );
+	}
+
+	foreach ( $revisions as $post ) {
+		$address = get_post_meta( $post->ID, '_ab_mailing_address', true );
+		if ( $address && empty( $old_addresses ) || ! in_array( $address, $old_addresses ) ) {
+			$old_addresses[] = $address;
+		}
+		unset( $old_addresses[ $current_address ] );
+	}
+var_dump($old_addresses); var_dump($old_emails);
+	if ( ! empty( $old_emails ) ) {
+		echo '<p>';
+		echo '<strong>Old email addresses:</strong><br />';
+		foreach ( $old_emails as $email ) {
+			echo $email . '<br />';
+		}
+		echo '</p>';
+	}
+
+	if ( ! empty( $old_addresses ) ) {
+		echo '<p>';
+		echo '<strong>Old addresses:</strong><br />';
+		foreach ( $old_addresses as $address ) {
+			echo wpautop( $address );
+		}
+		echo '</p>';
+	}
+}
