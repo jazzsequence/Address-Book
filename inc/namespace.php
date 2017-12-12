@@ -18,6 +18,7 @@ function bootstrap() {
 	add_action( 'init',             __NAMESPACE__ . '\\CPT\\register_address' );
 	add_action( 'init',             __NAMESPACE__ . '\\CPT\\register_taxonomies' );
 	add_action( 'save_post',        __NAMESPACE__ . '\\CPT\\save_old_address' );
+	add_filter( '_wp_post_revision_fields', __NAMESPACE__ . '\\CPT\\old_address_revision_fields' );
 	add_action( 'cmb2_init',        __NAMESPACE__ . '\\CMB2\\address_meta' );
 	add_action( 'cmb2_init',        __NAMESPACE__ . '\\CMB2\\past_addresses' );
 	add_action( 'cmb2_render_address_history', __NAMESPACE__ . '\\CMB2\\cmb2_render_address_history', 10, 3 );

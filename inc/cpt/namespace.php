@@ -72,6 +72,13 @@ function change_title_placeholder( $title ) {
 	return esc_html__( 'Name', 'address-book' );
 }
 
+function old_address_revision_fields( $fields ) {
+	return array_merge( $fields, [
+		'_ab_mailing_address' => esc_html__( 'Mailing Address', 'address-book' ),
+		'_ab_email' => esc_html__( 'Email Address', 'address-book' ),
+	] );
+}
+
 /**
  * Save the old address metadata to the revision.
  *
