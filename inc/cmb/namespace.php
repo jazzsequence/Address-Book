@@ -91,6 +91,15 @@ var_dump($old_addresses);
 	}
 }
 
+/**
+ * Gets the meta values for a meta key from post revisions and returns them in an array.
+ *
+ * @param  string $meta_key  The meta key to get post meta for.
+ * @param  array  $revisions An array of revision post objects.
+ * @param  int    $post_id   The post ID of the parent post.
+ * @return array             An array of meta values for the given meta key.
+ * @since  0.1.1
+ */
 function get_old_meta( $meta_key, $revisions, $post_id ) {
 	$current_thing = get_post_meta( $post_id, $meta_key, true );
 	$old_things    = $current_thing ? [ $current_thing ] : false;
@@ -105,6 +114,14 @@ function get_old_meta( $meta_key, $revisions, $post_id ) {
 	return clean_old_data( $old_things );
 }
 
+/**
+ * Takes an array of meta values from revisions and removes empty values, duplicates, and the current value.
+ *
+ * @param  string $current_thing The current value.
+ * @param  array  $old_things    An array of old values.
+ * @return array                 The cleaned array.
+ * @since  0.1.1
+ */
 function clean_old_data( $current_thing, $old_things ) {
 	$old_things = array_filter( $old_things );
 	$index      = array_search( $current_thing, $old_things );
