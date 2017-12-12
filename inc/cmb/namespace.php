@@ -66,6 +66,14 @@ function past_addresses() {
 	}
 }
 
+/**
+ * Address History CMB2 custom field callback.
+ *
+ * @param  string $field         The CMB2 meta field. Not used by this custom CMB2 field type.
+ * @param  string $escaped_value The CMB2 meta value. Not used by this custom CMB2 field type.
+ * @param  int    $object_id     The address post ID.
+ * @since  0.1
+ */
 function cmb2_render_address_history( $field, $escaped_value, $object_id ) {
 	$revisions     = wp_get_post_revisions( $object_id );
 
@@ -114,6 +122,12 @@ function clean_old_data( $current_thing, $old_things ) {
 	return $old_things;
 }
 
+/**
+ * Displays a list of old emails.
+ *
+ * @param  array $emails An array of old email addresses.
+ * @since  0.1.1
+ */
 function render_old_emails( $emails ) {
 	$count = count( $emails );
 	$label = __( 'Past email addresses', 'address-book' );
@@ -137,6 +151,12 @@ function render_old_emails( $emails ) {
 	echo wp_kses_post( ob_get_clean() );
 }
 
+/**
+ * Displays the list of old addresses.
+ *
+ * @param  array $addresses An array of former addresses.
+ * @since  0.1.1
+ */
 function render_old_addresses( $addresses ) {
 	$count = count( $addresses );
 	$label = __( 'Past addresses', 'address-book' );
