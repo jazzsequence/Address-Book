@@ -55,6 +55,7 @@ function past_addresses() {
 			'id'           => $prefix . 'old_addresses',
 			'title'        => __( 'Former Addresses', 'address-book' ),
 			'object_types' => [ 'ab_address' ],
+			'show_names'   => false,
 		] );
 
 		$cmb->add_field( [
