@@ -35,6 +35,13 @@ function address_meta() {
 	] );
 
 	$cmb->add_field( [
+		'name'            => __( 'Phone Number', 'address-book' ),
+		'id'              => $prefix . 'phone',
+		'type'            => 'text',
+		'sanitization_cb' => __NAMESPACE__ . '\\sanitize_phone_number',
+	] );
+
+	$cmb->add_field( [
 		'name'              => __( 'Inactive', 'address-book' ),
 		'id'                => $prefix . 'inactive',
 		'type'              => 'multicheck',
