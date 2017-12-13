@@ -222,3 +222,14 @@ function render_old_addresses( $addresses ) {
 	<?php
 	echo wp_kses_post( ob_get_clean() );
 }
+
+/**
+ * Sanitize text field for valid phone numbers.
+ *
+ * @param  string $value The saved value.
+ * @return string        The sanitized phone number.
+ * @since  0.1.2
+ */
+function sanitize_phone_number( $value ) {
+	return preg_replace( '/[^0-9+( )-]/', '', $value );
+}
