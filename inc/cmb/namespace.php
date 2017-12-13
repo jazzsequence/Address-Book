@@ -55,6 +55,51 @@ function address_meta() {
 }
 
 /**
+ * Repeatable group for special dates to remember.
+ *
+ * @since 0.1.2
+ */
+function special_dates() {
+	$prefix = '_ab_';
+
+	$cmb = new_cmb2_box( [
+		'id'           => $prefix . 'dates',
+		'title'        => __( 'Special Dates', 'address-book' ),
+		'object_types' => [ 'ab_address' ],
+		'show_names'   => false,
+	] );
+
+	$group_field_id = $cmb->add_field( [
+		'id'          => $prefix . 'dates',
+		'type'        => 'group',
+		'options'     => [
+			'group_title'   => __( 'Date {#}', 'address-book' ),
+			'add_button'    => __( 'Add another date', 'address-book' ),
+			'remove_button' => __( 'Remove date', 'address-book' ),
+			'sortable'      => true,
+		],
+	] );
+
+	$cmb->add_group_field( $group_field_id, [
+		'name'        => __( 'Event', 'address-book' ),
+		'description' => __( 'What type of event this is (birthday, anniversary, etc).', 'address-book' ),
+		'id'          => 'title',
+		'type'        => 'text',
+	] );
+
+	$cmb->add_group_field( $group_field_id, [
+		'name'        => __( 'Date', 'address-book' ),
+		'id'          => 'date',
+		'type'        => 'text_date',
+		'attributes'  => [
+			'data-datepicker' => json_encode([
+				'yearRange' => '-100:+0',
+			]),
+		],
+	] );
+}
+
+/**
  * Add the past addresses metabox.
  *
  * @since 0.1
