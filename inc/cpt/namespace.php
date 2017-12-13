@@ -106,7 +106,7 @@ function save_old_address( $post_id, $post ) {
 
 		foreach ( $meta_values as $key => $value ) {
 			// Save post meta if there is a value and it's not the same as what's already saved.
-			if ( false !== $value && get_post_meta( $parent_id, $key, true ) !== $value ) {
+			if ( false !== $value ) {
 				add_metadata( 'post', $post_id, $key, $value );
 			}
 		}
