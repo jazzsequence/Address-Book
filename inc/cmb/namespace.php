@@ -115,6 +115,7 @@ function cmb2_render_address_history( $field, $escaped_value, $object_id ) {
 
 	render_old_emails( get_old_meta( '_ab_email', $revisions, $object_id ) );
 	render_old_addresses( get_old_meta( '_ab_mailing_address', $revisions, $object_id ) );
+	render_old_phone_nums( get_old_meta( '_ab_phone', $revisions, $object_id ) );
 }
 
 /**
@@ -225,6 +226,41 @@ function render_old_addresses( $addresses ) {
 					</address>
 				<?php endforeach; ?>
 			</div>
+		</div>
+	<?php
+	echo wp_kses_post( ob_get_clean() );
+}
+
+/**
+ * Displays a list of old phone numbers.
+ *
+ * @param  array $phone_numbers An array of old phone numbers.
+ * @since  0.1.2
+ */
+function render_old_phone_nums( $phone_numbers ) {
+	$count = count( $phone_numbers );
+
+	// Bail if there aren't any.
+	if ( 0 === $count ) {
+		return;
+	}
+
+	$label = __( 'Past phone numbers', 'address-book' );
+
+	ob_start(); ?>
+		<div class="old-phone-number" id="address-<?php the_ID(); ?>-old-phone-numbers">
+			<label><?php echo esc_html( $label ); ?></label>
+			<span class="old-phone-number-count">
+				<?php
+				// Translators: %d is the number of old phone numbers.
+				echo esc_html( sprintf( _n( '%d former phone number found.', '%d former phone numbers found.', $count, 'address-book' ), $count ) );
+				?>
+			</span>
+			<ul class="phone-number-list">
+				<?php foreach ( $phone_numbers as $phone_number ) : ?>
+					<li><?php echo esc_html( $phone_number ); ?></li>
+				<?php endforeach; ?>
+			</ul>
 		</div>
 	<?php
 	echo wp_kses_post( ob_get_clean() );
