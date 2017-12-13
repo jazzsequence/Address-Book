@@ -47,6 +47,11 @@ function address_meta() {
 	] );
 }
 
+/**
+ * Add the past addresses metabox.
+ *
+ * @since 0.1
+ */
 function past_addresses() {
 	$prefix = '_ab_';
 
