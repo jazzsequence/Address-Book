@@ -82,7 +82,8 @@ function change_title_placeholder( $title ) {
 function old_address_revision_fields( $fields ) {
 	return array_merge( $fields, [
 		'_ab_mailing_address' => esc_html__( 'Mailing Address', 'address-book' ),
-		'_ab_email' => esc_html__( 'Email Address', 'address-book' ),
+		'_ab_email'           => esc_html__( 'Email Address', 'address-book' ),
+		'_ab_phone'           => esc_html__( 'Phone Number', 'address-book' ),
 	] );
 }
 
@@ -102,6 +103,7 @@ function save_old_address( $post_id, $post ) {
 		$meta_values = [
 			'_ab_mailing_address' => get_post_meta( $parent->ID, '_ab_mailing_address', true ),
 			'_ab_email'           => get_post_meta( $parent->ID, '_ab_email', true ),
+			'_ab_phone'           => get_post_meta( $parent->ID, '_ab_phone', true ),
 		];
 
 		foreach ( $meta_values as $key => $value ) {
