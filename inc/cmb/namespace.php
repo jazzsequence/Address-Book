@@ -68,7 +68,31 @@ function past_addresses() {
 			'id'         => $prefix . 'old_addresses',
 			'type'       => 'address_history',
 		] );
+}
+
+/**
+ * Show on callback for address history custom CMB2 field.
+ *
+ * @return boolean Whether to show the address history or not.
+ * @since  0.1.1
+ */
+function show_past_addresses() {
+	if ( empty( $_GET['post'] ) ) {
+		return false;
 	}
+
+	$post_id = wp_unslash( absint( $_GET['post'] ) );
+	$revisions = wp_get_post_revisions( $post_id );
+
+	if ( ! $revisions ) {
+		return false;
+	}
+
+	if ( 1 > count( get_old_meta( '_ab_email', $revisions, $post_id ) ) && 1 > count( get_old_meta( '_ab_mailing_address', $revisions, $post_id ) ) ) {
+		return false;
+	}
+
+	return true;
 }
 
 /**
