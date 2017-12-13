@@ -135,6 +135,12 @@ function clean_old_data( $current_thing, $old_things ) {
  */
 function render_old_emails( $emails ) {
 	$count = count( $emails );
+
+	// Bail if there aren't any.
+	if ( 0 === $count ) {
+		return;
+	}
+
 	$label = __( 'Past email addresses', 'address-book' );
 
 	ob_start(); ?>
@@ -164,6 +170,12 @@ function render_old_emails( $emails ) {
  */
 function render_old_addresses( $addresses ) {
 	$count = count( $addresses );
+
+	// Bail if there aren't any.
+	if ( 0 === $count ) {
+		return;
+	}
+
 	$label = __( 'Past addresses', 'address-book' );
 
 	ob_start(); ?>
