@@ -26,8 +26,22 @@ A WordPress plugin for storing and maintaining addresses.
 
 ## Changelog ##
 
+### 0.1.2 ###
+* Added phone number field and custom sanitization for phone numbers
+* Added support for phone number revisions
+* Added support for special dates
+
+### 0.1.1 ###
+* Refined the handling of address meta revisions
+* Added new Past Addresses meta box
+* Made more generic CMB2 helper functions
+
 ### 0.1 ###
 * First release
+* Adds initial plugin framework
+* Added post type, taxonomies, and initial metaboxes
+* Added support for revisions and post meta revision support
+* Changed the default "Enter title here" placeholder text
 
 ## Upgrade Notice ##
 
