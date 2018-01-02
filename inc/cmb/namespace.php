@@ -321,3 +321,26 @@ function render_old_phone_nums( $phone_numbers ) {
 function sanitize_phone_number( $value ) {
 	return preg_replace( '/[^0-9+( )-]/', '', $value );
 }
+
+/**
+ * Returns the meta data for an address.
+ *
+ * @since  0.2.1
+ * @param  integer $post_id An address post ID.
+ * @return array            The address meta in array format.
+ */
+function get_address_meta( $post_id = 0 ) {
+	$post_id = \AddressBook\get_post_id( $post_id );
+
+	// Bail if we don't have an ID.
+	if ( is_wp_error( $post_id ) ) {
+		return;
+	}
+
+	return [
+		'address'  => get_post_meta( $post_id, '_ab_mailing_address', true ),
+		'email'    => get_post_meta( $post_id, '_ab_email', true ),
+		'phone'    => get_post_meta( $post_id, '_ab_phone', true ),
+		'inactive' => is_inactive( $post_id ),
+	];
+}
