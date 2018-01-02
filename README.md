@@ -3,7 +3,7 @@
 **Tags:**  
 **Requires at least:** 4.4  
 **Tested up to:**      4.9.1  
-**Stable tag:**        0.2  
+**Stable tag:**        0.2.1  
 **License:**           GPLv3  
 **License URI:**       http://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -25,6 +25,14 @@ A WordPress plugin for storing and maintaining addresses.
 
 
 ## Changelog ##
+
+### 0.2.1 ###
+* Added admin page for custom address list
+* Moved CMB2 stuff into CPT directory
+* Added generic and CMB2 helper functions
+
+### 0.2 ###
+* Update license to GPL3
 
 ### 0.1.2 ###
 * Added phone number field and custom sanitization for phone numbers
