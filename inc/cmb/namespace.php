@@ -344,3 +344,27 @@ function get_address_meta( $post_id = 0 ) {
 		'inactive' => is_inactive( $post_id ),
 	];
 }
+
+/**
+ * Checks if an address should be inactive.
+ *
+ * @since  0.2.1
+ * @param  int $post_id An address post ID.
+ * @return boolean      Whether the address is active.
+ */
+function is_inactive( $post_id ) {
+	$post_id = \AddressBook\get_post_id( $post_id );
+
+	// Return as inactive if there's an error with the post ID.
+	if ( is_wp_error( $post_id ) ) {
+		return true;
+	}
+
+	$inactive = get_post_meta( $post_id, 'ab_inactive', true );
+
+	if ( '' === $inactive ) {
+		return false;
+	}
+
+	return true;
+}
