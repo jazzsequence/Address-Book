@@ -104,11 +104,11 @@ function address_query( $numposts = -1, $inactive = false ) {
  * @return array The array of addresses.
  */
 function get_addresses( $numposts = -1, $inactive = false ) {
-	$addresses = wp_cache_get( 'address_list', 'address_book' );
+	$addresses = wp_cache_get( 'full_address_list', 'address_book' );
 
-	if ( ! $addresses ) {
+	if ( ! $addresses && $numposts < 0 ) {
 		$addresses = \AddressBook\address_query()->posts;
-		wp_cache_set( 'address_list', $addresses, 'address_book', DAY_IN_SECONDS );
+		wp_cache_set( 'full_address_list', $addresses, 'address_book', DAY_IN_SECONDS );
 	}
 
 	foreach ( $addresses as $index => $address ) {
@@ -133,5 +133,5 @@ function flush_cached_addresses( $post_id ) {
 		return;
 	}
 
-	wp_cache_delete( 'address_list', 'address_book' );
+	wp_cache_delete( 'full_address_list', 'address_book' );
 }
