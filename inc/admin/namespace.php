@@ -152,7 +152,7 @@ function render_address( $address ) {
  * @since 0.2.1
  */
 function the_address_list() {
-	foreach ( get_addresses() as $address ) {
+	foreach ( \AddressBook\get_addresses() as $address ) {
 		render_address( $address );
 	}
 }
