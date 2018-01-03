@@ -92,5 +92,30 @@ function address_query( $numposts = -1, $inactive = false ) {
 	$address_query = new \WP_Query( $args );
 
 	return $address_query;
+}
+
+/**
+ * Remove the inactive addresses and return a filtered, sorted (by family and relationship) list of addresses.
+ *
+ * @since  0.2.1
+ * @param  int  $numposts The number of posts to query. -1 pulls all posts.
+ * @param  bool $inactive Whether to include inactive addresses.
+ * @return array The array of addresses.
+ */
+function get_addresses( $numposts = -1, $inactive = false ) {
+	$addresses = wp_cache_get( 'address_list', 'address_book' );
+
+	if ( ! $addresses ) {
+		$addresses = \AddressBook\address_query()->posts;
+		wp_cache_set( 'address_list', $addresses, 'address_book', DAY_IN_SECONDS );
+	}
+
+	foreach ( $addresses as $index => $address ) {
+		if ( CMB\is_inactive( $address->ID ) ) {
+			unset( $addresses[ $index ] );
+		}
+	}
+
+	return $addresses;
 
 }

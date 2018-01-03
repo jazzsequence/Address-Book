@@ -114,24 +114,6 @@ function admin_page() {
 }
 
 /**
- * Remove the inactive addresses and return a filtered, sorted (by family and relationship) list of addresses.
- *
- * @since  0.2.1
- * @return array The array of addresses.
- */
-function get_addresses() {
-	$addresses = \AddressBook\address_query();
-
-	foreach ( $addresses as $index => $address ) {
-		if ( CMB\is_inactive( $address->ID ) ) {
-			unset( $addresses[ $index ] );
-		}
-	}
-
-	return $addresses;
-}
-
-/**
  * Renders a single address in the table list.
  *
  * @since  0.2.1
