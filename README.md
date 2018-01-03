@@ -3,7 +3,7 @@
 **Tags:**  
 **Requires at least:** 4.4  
 **Tested up to:**      4.9.1  
-**Stable tag:**        0.2.1  
+**Stable tag:**        0.2.2  
 **License:**           GPLv3  
 **License URI:**       http://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -25,6 +25,13 @@ A WordPress plugin for storing and maintaining addresses.
 
 
 ## Changelog ##
+
+### 0.2.2 ###
+* Added new helper function to handle `WP_Query` so we aren't using `get_posts`
+* Updated `get_addresses` so it works like `get_posts`
+* Added meta query for inactive addresses
+* Added default relationships and removed row actions so they are harder to edit
+* Added caching for full address lists
 
 ### 0.2.1 ###
 * Added admin page for custom address list
