@@ -120,12 +120,7 @@ function admin_page() {
  * @return array The array of addresses.
  */
 function get_addresses() {
-	$addresses = get_posts( [
-		'post_type'      => 'ab_address',
-		'posts_per_page' => -1,
-		'nopaging'       => true,
-		'no_found_rows'  => false,
-	] );
+	$addresses = \AddressBook\address_query();
 
 	foreach ( $addresses as $index => $address ) {
 		if ( CMB\is_inactive( $address->ID ) ) {
