@@ -62,7 +62,7 @@ function get_post_id( $post_id = 0 ) {
 	}
 
 	if ( ! $post_id || ! is_int( $post_id ) ) {
-		return new WP_Error( 'no_IDea', esc_html__( 'No Address ID found', 'address-book' ) );
+		return new \WP_Error( 'no_IDea', esc_html__( 'No Address ID found', 'address-book' ) );
 	}
 
 	return $post_id;
