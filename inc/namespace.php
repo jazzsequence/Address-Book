@@ -85,7 +85,7 @@ function address_query( $numposts = -1, $inactive = false ) {
 	];
 
 	// Include inactive posts if $inactive is true.
-	if ( $inactive ) {
+	if ( ! $inactive ) {
 		$args['meta_query'] = [];
 	}
 
