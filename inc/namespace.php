@@ -84,6 +84,10 @@ function address_query( $numposts = -1, $inactive = false ) {
 		'no_found_rows'  => true,
 	];
 
+	// Include inactive posts if $inactive is true.
+	if ( $inactive ) {
+		$args['meta_query'] = [];
+	}
 
 	$address_query = new \WP_Query( $args );
 
