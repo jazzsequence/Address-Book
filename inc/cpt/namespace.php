@@ -136,3 +136,21 @@ function insert_relationships() {
 		'description' => __( 'Friends of friends and people who are not close.', 'address-book' ),
 	] );
 }
+
+/**
+ * Remove the action row links for built-in taxonomies.
+ *
+ * @since  0.2.2
+ * @param  array  $actions The array of term actions.
+ * @param  object $tag     The taxonomy term object.
+ * @return array           Filtered array of actions.
+ */
+function remove_relationship_row_actions( $actions, $tag ) {
+	if ( in_array( $tag->slug, [ 'family', 'friend', 'acquaintance' ] ) ) {
+		unset( $actions['edit'] );
+		unset( $actions['inline hide-if-no-js'] );
+		unset( $actions['delete'] );
+	}
+
+	return $actions;
+}

@@ -30,6 +30,7 @@ function bootstrap() {
 
 	add_filter( 'enter_title_here',            __NAMESPACE__ . '\\CPT\\change_title_placeholder' );
 	add_filter( '_wp_post_revision_fields',    __NAMESPACE__ . '\\CPT\\old_address_revision_fields' );
+	add_filter( 'relationship_row_actions',    __NAMESPACE__ . '\\CPT\\remove_relationship_row_actions', 10, 2 );
 }
 
 /**
