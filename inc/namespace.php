@@ -15,6 +15,7 @@ namespace AddressBook;
 function bootstrap() {
 	spl_autoload_register( __NAMESPACE__ . '\\autoload' );
 
+	add_action( 'save_post',                   __NAMESPACE__ . '\\flush_cached_addresses' );
 	add_action( 'init',                        __NAMESPACE__ . '\\CPT\\register_address' );
 	add_action( 'init',                        __NAMESPACE__ . '\\CPT\\register_taxonomies' );
 	add_action( 'save_post',                   __NAMESPACE__ . '\\CPT\\save_old_address', 10, 2 );
@@ -117,5 +118,20 @@ function get_addresses( $numposts = -1, $inactive = false ) {
 	}
 
 	return $addresses;
+}
 
+/**
+ * Delete cached address list on save post.
+ *
+ * @since  0.2.2
+ * @param  int $post_id The post ID.
+ * @return void
+ */
+function flush_cached_addresses( $post_id ) {
+	// Don't flush for revisions.
+	if ( wp_is_post_revision( $post_id ) ) {
+		return;
+	}
+
+	wp_cache_delete( 'address_list', 'address_book' );
 }
