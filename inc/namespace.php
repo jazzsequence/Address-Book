@@ -74,17 +74,19 @@ function get_post_id( $post_id = 0 ) {
  * @since  0.2.2
  * @param  int  $numposts The number of posts to query. -1 pulls all posts.
  * @param  bool $inactive Whether to include inactive addresses.
- * @return array          An array of addresses.
+ * @return object         The WP_Query object.
  */
 function address_query( $numposts = -1, $inactive = false ) {
-	$address_query = new \WP_Query([
+	$args = [
 		'post_type'      => 'ab_address',
 		'nopaging'       => true,
 		'posts_per_page' => $numposts,
 		'no_found_rows'  => true,
-	]);
+	];
 
-	$addresses = (array) $address_query;
 
-	return $addresses['posts'];
+	$address_query = new \WP_Query( $args );
+
+	return $address_query;
+
 }
