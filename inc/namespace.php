@@ -18,6 +18,7 @@ function bootstrap() {
 	add_action( 'save_post',                   __NAMESPACE__ . '\\flush_cached_addresses' );
 	add_action( 'init',                        __NAMESPACE__ . '\\CPT\\register_address' );
 	add_action( 'init',                        __NAMESPACE__ . '\\CPT\\register_taxonomies' );
+	add_action( 'init',                        __NAMESPACE__ . '\\CPT\\insert_relationships' );
 	add_action( 'save_post',                   __NAMESPACE__ . '\\CPT\\save_old_address', 10, 2 );
 	add_action( 'cmb2_init',                   __NAMESPACE__ . '\\CMB2\\address_meta' );
 	add_action( 'cmb2_init',                   __NAMESPACE__ . '\\CMB2\\past_addresses' );

@@ -114,3 +114,25 @@ function save_old_address( $post_id, $post ) {
 		}
 	}
 }
+
+/**
+ * Insert some default relationships.
+ *
+ * @since 0.2.2
+ */
+function insert_relationships() {
+	wp_insert_term( __( 'Family', 'address-book' ), 'relationship', [
+		'slug'        => 'family',
+		'description' => __( 'People who are related by blood or marriage.', 'address-book' ),
+	] );
+
+	wp_insert_term( __( 'Friend', 'address-book' ), 'relationship', [
+		'slug'        => 'friend',
+		'description' => __( 'People who are close but not blood related.', 'address-book' ),
+	] );
+
+	wp_insert_term( __( 'Acquaintance', 'address-book' ), 'relationship', [
+		'slug'        => 'acquaintance',
+		'description' => __( 'Friends of friends and people who are not close.', 'address-book' ),
+	] );
+}
