@@ -1,25 +1,5 @@
 <?php
-declare(strict_types=1);
-
-/**
- * Extended custom post types for WordPress.
- *
- * @package   ExtendedCPTs
- * @author    John Blackbourn <https://johnblackbourn.com>
- * @link      https://github.com/johnbillion/extended-cpts
- * @copyright 2012-2017 John Blackbourn
- * @license   GPL v2 or later
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- */
+declare( strict_types=1 );
 
 class Extended_CPT_Admin {
 
@@ -286,7 +266,7 @@ class Extended_CPT_Admin {
 					<?php
 					foreach ( $filter['options'] as $k => $v ) {
 						$key = ( $use_key ? $k : $v );
-					?>
+						?>
 						<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $selected, $key ); ?>><?php echo esc_html( $v ); ?></option>
 					<?php } ?>
 				</select>
@@ -461,7 +441,7 @@ class Extended_CPT_Admin {
 		$url = add_query_arg( [
 			'post_type' => $this->cpt->post_type,
 		], admin_url( 'edit.php' ) );
-		$text = '<a href="' . esc_url( $url ) . '">' . esc_html( $num . ' ' . $text ) . '</a>';
+		$text = '<a href="' . esc_url( $url ) . '" class="cpt-' . esc_attr( $this->cpt->post_type ) . '-count">' . esc_html( $num . ' ' . $text ) . '</a>';
 
 		# Go!
 		$items[] = $text;
@@ -1006,6 +986,7 @@ class Extended_CPT_Admin {
 			}
 		}
 
+		// phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
 		foreach ( $_post->$field as $post ) {
 
 			setup_postdata( $post );

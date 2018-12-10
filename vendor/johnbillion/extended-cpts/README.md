@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/johnbillion/extended-cpts.svg?branch=master)](https://travis-ci.org/johnbillion/extended-cpts)
 [![Stable Release](https://img.shields.io/packagist/v/johnbillion/extended-cpts.svg)](https://packagist.org/packages/johnbillion/extended-cpts)
 [![License](https://img.shields.io/badge/license-GPL_v2%2B-blue.svg)](https://github.com/johnbillion/extended-cpts/blob/master/LICENSE)
-![License](https://img.shields.io/badge/php-7-blue.svg)
+![PHP 7](https://img.shields.io/badge/php-7-blue.svg)
 
 # Extended CPTs #
 
@@ -9,7 +9,7 @@ Extended CPTs is a library which provides extended functionality to WordPress cu
 
 [See the wiki for full documentation.](https://github.com/johnbillion/extended-cpts/wiki)
 
-**Note that *Extended Taxonomies* was merged into this library with version 4.0. There's now no need to use the separate *Extended Taxonomies* library.**
+**Note that *Extended Taxonomies* is now part of this library. There's no need to use the separate *Extended Taxonomies* library.**
 
 ## Improved Defaults for Post Types ##
 

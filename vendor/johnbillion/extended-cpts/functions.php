@@ -1,28 +1,8 @@
 <?php
-declare(strict_types=1);
+declare( strict_types=1 );
 
 /**
- * Extended custom post types for WordPress.
- *
- * @package   ExtendedCPTs
- * @author    John Blackbourn <https://johnblackbourn.com>
- * @link      https://github.com/johnbillion/extended-cpts
- * @copyright 2012-2017 John Blackbourn
- * @license   GPL v2 or later
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- */
-
-/**
- * Register an Extended Post Type.
+ * Registers a custom post type.
  *
  * The `$args` parameter accepts all the standard arguments for `register_post_type()` in addition to several custom
  * arguments that provide extended functionality. Some of the default arguments differ from the defaults in
@@ -72,7 +52,7 @@ function register_extended_post_type( string $post_type, array $args = [], array
 }
 
 /**
- * Register an extended custom taxonomy.
+ * Registers a custom taxonomy.
  *
  * The `$args` parameter accepts all the standard arguments for `register_taxonomy()` in addition to several custom
  * arguments that provide extended functionality. Some of the default arguments differ from the defaults in
@@ -86,11 +66,12 @@ function register_extended_post_type( string $post_type, array $args = [], array
  * The singular name, plural name, and slug are generated from the taxonomy name. These can be overridden with the
  * `$names` parameter if necessary. Example:
  *
- *     register_extended_taxonomy( 'story', 'post' [], [
+ *     register_extended_taxonomy( 'story', 'post', [], [
  *         'plural' => 'Stories',
  *         'slug'   => 'tales',
  *     ] );
  *
+ * @link https://github.com/johnbillion/extended-cpts/wiki/Basic-usage
  * @see register_taxonomy() for default arguments.
  *
  * @param string       $taxonomy    The taxonomy name.

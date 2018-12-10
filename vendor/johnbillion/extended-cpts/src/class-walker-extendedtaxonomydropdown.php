@@ -1,25 +1,5 @@
 <?php
-declare(strict_types=1);
-
-/**
- * Extended custom post types for WordPress.
- *
- * @package   ExtendedCPTs
- * @author    John Blackbourn <https://johnblackbourn.com>
- * @link      https://github.com/johnbillion/extended-cpts
- * @copyright 2012-2017 John Blackbourn
- * @license   GPL v2 or later
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- */
+declare( strict_types=1 );
 
 /**
  * A term walker class for a dropdown menu.
@@ -32,10 +12,10 @@ class Walker_ExtendedTaxonomyDropdown extends Walker {
 	 * Some member variables you don't need to worry too much about:
 	 */
 	public $tree_type = 'category';
-	public $db_fields = array(
+	public $db_fields = [
 		'parent' => 'parent',
 		'id'     => 'term_id',
-	);
+	];
 	public $field = null;
 
 	/**
@@ -58,7 +38,7 @@ class Walker_ExtendedTaxonomyDropdown extends Walker {
 	 * @param array  $args              Optional arguments.
 	 * @param int    $current_object_id Current object ID.
 	 */
-	public function start_el( &$output, $object, $depth = 0, $args = array(), $current_object_id = 0 ) {
+	public function start_el( &$output, $object, $depth = 0, $args = [], $current_object_id = 0 ) {
 
 		$pad = str_repeat( '&nbsp;', $depth * 3 );
 		$tax = get_taxonomy( $args['taxonomy'] );
