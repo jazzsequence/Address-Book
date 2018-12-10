@@ -13,15 +13,22 @@
 
 namespace AddressBook;
 
-// Load extended cpts if it hasn't been loaded yet.
-if ( ! function_exists( 'register_extended_post_type' ) ) {
-	require_once __DIR__ . '/vendor/johnbillion/extended-cpts/extended-cpts.php';
+/**
+ * Move everything into an init function.
+ */
+function init() {
+	// Load extended cpts if it hasn't been loaded yet.
+	if ( ! function_exists( 'register_extended_post_type' ) ) {
+		require_once __DIR__ . '/vendor/johnbillion/extended-cpts/extended-cpts.php';
+	}
+
+	require_once __DIR__ . '/inc/namespace.php';
+	require_once __DIR__ . '/inc/cpt/namespace.php';
+	require_once __DIR__ . '/inc/cpt/cmb.php';
+	require_once __DIR__ . '/inc/admin/namespace.php';
+
+	add_action( 'plugins_loaded', __NAMESPACE__ . '\\bootstrap' );
 }
 
-require_once __DIR__ . '/inc/namespace.php';
-require_once __DIR__ . '/inc/cpt/namespace.php';
-require_once __DIR__ . '/inc/cpt/cmb.php';
-require_once __DIR__ . '/inc/admin/namespace.php';
-
 // Kick it off.
-add_action( 'plugins_loaded', __NAMESPACE__ . '\\bootstrap' );
+init();
