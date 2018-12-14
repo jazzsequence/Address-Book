@@ -1,10 +1,10 @@
 # Address Book #
-**Contributors:**      Chris Reynolds  
-**Requires at least:** 4.4  
-**Tested up to:**      4.9.1  
-**Stable tag:**        0.3  
-**License:**           GPLv3  
-**License URI:**       http://www.gnu.org/licenses/gpl-3.0.html  
+**Contributors:**      Chris Reynolds
+**Requires at least:** 4.4
+**Tested up to:**      4.9.1
+**Stable tag:**        0.3
+**License:**           GPLv3
+**License URI:**       http://www.gnu.org/licenses/gpl-3.0.html
 
 ## Description ##
 
@@ -18,6 +18,9 @@ A WordPress plugin for storing and maintaining addresses.
 2. Activate Address Book through the 'Plugins' menu in WordPress.
 
 ## Changelog ##
+
+### 0.3.1 ###
+* Remove check for CMB2 class (not needed, CMB2 handles it internally).
 
 ### 0.3 ###
 * Using composer to require extended cpts and cmb2.

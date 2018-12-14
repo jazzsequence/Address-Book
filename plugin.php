@@ -6,7 +6,7 @@
  * Author: Chris Reynolds
  * Author URI: https://chrisreynolds.io
  * License: GPLv3
- * Version: 0.3
+ * Version: 0.3.1
  *
  * @package AddressBook
  */
@@ -22,11 +22,7 @@ function init() {
 		require_once __DIR__ . '/vendor/johnbillion/extended-cpts/extended-cpts.php';
 	}
 
-	// Load CMB2 if it hasn't been loaded yet.
-	if ( ! class_exists( 'CMB2' ) ) {
-		require_once __DIR__ . '/vendor/cmb2/cmb2/init.php';
-	}
-
+	require_once __DIR__ . '/vendor/cmb2/cmb2/init.php';
 	require_once __DIR__ . '/inc/namespace.php';
 	require_once __DIR__ . '/inc/cpt/namespace.php';
 	require_once __DIR__ . '/inc/cpt/cmb.php';
