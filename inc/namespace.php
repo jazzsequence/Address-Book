@@ -120,7 +120,7 @@ function get_addresses( $numposts = -1, $inactive = false ) {
 	}
 
 	foreach ( $addresses as $index => $address ) {
-		if ( CMB\is_inactive( $address->ID ) ) {
+		if ( CMB2\is_inactive( $address->ID ) ) {
 			unset( $addresses[ $index ] );
 		}
 	}
