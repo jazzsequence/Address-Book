@@ -115,7 +115,7 @@ function get_addresses( $numposts = -1, $inactive = false ) {
 	$addresses = wp_cache_get( 'full_address_list', 'address_book' );
 
 	if ( ! $addresses && $numposts < 0 ) {
-		$addresses = \AddressBook\address_query()->posts;
+		$addresses = address_query()->posts;
 		wp_cache_set( 'full_address_list', $addresses, 'address_book', DAY_IN_SECONDS );
 	}
 
