@@ -6,7 +6,7 @@
  */
 
 namespace AddressBook\Admin;
-use AddressBook\CMB2 as CMB;
+use AddressBook\CMB2;
 
 /**
  * Removes the main CPT menu item for addresses.
@@ -120,7 +120,7 @@ function admin_page() {
  * @param  object $address WP_Post object.
  */
 function render_address( $address ) {
-	$address_meta = CMB\get_address_meta( $address->ID );
+	$address_meta = CMB2\get_address_meta( $address->ID );
 	?>
 	<tr id="address-<?php echo absint( $address->ID ); ?>">
 		<td class="column-primary name column-name has-row-actions" data-colname="<?php esc_html_e( 'Name', 'address-book' ); ?>"">
