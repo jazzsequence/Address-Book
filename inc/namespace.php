@@ -7,6 +7,8 @@
 
 namespace AddressBook;
 
+use AddressBook\CMB2;
+
 /**
  * Bootstrap the plugin.
  *
