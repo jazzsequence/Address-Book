@@ -15,22 +15,22 @@ namespace AddressBook;
 function bootstrap() {
 	spl_autoload_register( __NAMESPACE__ . '\\autoload' );
 
-	add_action( 'save_post',                   __NAMESPACE__ . '\\flush_cached_addresses' );
-	add_action( 'init',                        __NAMESPACE__ . '\\CPT\\register_address' );
-	add_action( 'init',                        __NAMESPACE__ . '\\CPT\\register_taxonomies' );
-	add_action( 'init',                        __NAMESPACE__ . '\\CPT\\insert_relationships' );
-	add_action( 'save_post',                   __NAMESPACE__ . '\\CPT\\save_old_address', 10, 2 );
-	add_action( 'cmb2_init',                   __NAMESPACE__ . '\\CMB2\\address_meta' );
-	add_action( 'cmb2_init',                   __NAMESPACE__ . '\\CMB2\\past_addresses' );
-	add_action( 'cmb2_init',                   __NAMESPACE__ . '\\CMB2\\special_dates' );
+	add_action( 'save_post', __NAMESPACE__ . '\\flush_cached_addresses' );
+	add_action( 'init', __NAMESPACE__ . '\\CPT\\register_address' );
+	add_action( 'init', __NAMESPACE__ . '\\CPT\\register_taxonomies' );
+	add_action( 'init', __NAMESPACE__ . '\\CPT\\insert_relationships' );
+	add_action( 'save_post', __NAMESPACE__ . '\\CPT\\save_old_address', 10, 2 );
+	add_action( 'cmb2_init', __NAMESPACE__ . '\\CMB2\\address_meta' );
+	add_action( 'cmb2_init', __NAMESPACE__ . '\\CMB2\\past_addresses' );
+	add_action( 'cmb2_init', __NAMESPACE__ . '\\CMB2\\special_dates' );
 	add_action( 'cmb2_render_address_history', __NAMESPACE__ . '\\CMB2\\cmb2_render_address_history', 10, 3 );
-	add_action( 'admin_menu',                  __NAMESPACE__ . '\\Admin\\remove_cpt_menu' );
-	add_action( 'admin_menu',                  __NAMESPACE__ . '\\Admin\\add_menus' );
-	add_action( 'parent_file',                 __NAMESPACE__ . '\\Admin\\taxonomy_parent' );
+	add_action( 'admin_menu', __NAMESPACE__ . '\\Admin\\remove_cpt_menu' );
+	add_action( 'admin_menu', __NAMESPACE__ . '\\Admin\\add_menus' );
+	add_action( 'parent_file', __NAMESPACE__ . '\\Admin\\taxonomy_parent' );
 
-	add_filter( 'enter_title_here',            __NAMESPACE__ . '\\CPT\\change_title_placeholder' );
-	add_filter( '_wp_post_revision_fields',    __NAMESPACE__ . '\\CPT\\old_address_revision_fields' );
-	add_filter( 'relationship_row_actions',    __NAMESPACE__ . '\\CPT\\remove_relationship_row_actions', 10, 2 );
+	add_filter( 'enter_title_here', __NAMESPACE__ . '\\CPT\\change_title_placeholder' );
+	add_filter( '_wp_post_revision_fields', __NAMESPACE__ . '\\CPT\\old_address_revision_fields' );
+	add_filter( 'relationship_row_actions', __NAMESPACE__ . '\\CPT\\remove_relationship_row_actions', 10, 2 );
 }
 
 /**
