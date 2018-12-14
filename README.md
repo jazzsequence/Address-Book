@@ -1,9 +1,8 @@
 # Address Book #
 **Contributors:**      Chris Reynolds  
-**Tags:**  
 **Requires at least:** 4.4  
 **Tested up to:**      4.9.1  
-**Stable tag:**        0.2.2  
+**Stable tag:**        0.3  
 **License:**           GPLv3  
 **License URI:**       http://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -18,13 +17,11 @@ A WordPress plugin for storing and maintaining addresses.
 1. Upload the entire `/address-book` directory to the `/wp-content/plugins/` directory.
 2. Activate Address Book through the 'Plugins' menu in WordPress.
 
-## Frequently Asked Questions ##
-
-
-## Screenshots ##
-
-
 ## Changelog ##
+
+### 0.3 ###
+* Using composer to require extended cpts and cmb2.
+* Moved requires to an init function.
 
 ### 0.2.2 ###
 * Added new helper function to handle `WP_Query` so we aren't using `get_posts`
