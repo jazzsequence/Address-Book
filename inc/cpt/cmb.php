@@ -113,6 +113,7 @@ function past_addresses() {
 		'object_types' => [ 'ab_address' ],
 		'show_names'   => false,
 		'show_on_cb'   => __NAMESPACE__ . '\\show_past_addresses',
+		'priority'     => 'low',
 	] );
 
 	$cmb->add_field( [
@@ -253,11 +254,8 @@ function render_old_addresses( $addresses ) {
 		return;
 	}
 
-	$label = __( 'Past addresses', 'address-book' );
-
 	ob_start(); ?>
 		<div class="old-addresses" id="address-<?php the_ID(); ?>-old-addresses">
-			<label><?php echo esc_html( $label ); ?></label>
 			<span class="old-addresses-count">
 				<?php
 				// Translators: %d is the number of old addresses.
