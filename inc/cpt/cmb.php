@@ -19,7 +19,7 @@ function address_meta() {
 		'id'           => $prefix . 'metabox',
 		'title'        => __( 'Address Information', 'address-book' ),
 		'object_types' => [ 'ab_address' ],
-		'priority'     => 'high',
+		'priority'     => 'core',
 	] );
 
 	$cmb->add_field( [
