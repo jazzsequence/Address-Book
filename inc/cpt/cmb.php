@@ -113,6 +113,7 @@ function past_addresses() {
 		'object_types' => [ 'ab_address' ],
 		'show_names'   => false,
 		'show_on_cb'   => __NAMESPACE__ . '\\show_past_addresses',
+		'priority'     => 'low',
 	] );
 
 	$cmb->add_field( [
