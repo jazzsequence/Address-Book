@@ -1,6 +1,16 @@
 {
+    "name": "jazzsequence/address-book",
+    "description": "A WordPress plugin for storing and maintaining addresses.",
+    "type": "wordpress-plugin",
     "require": {
         "johnbillion/extended-cpts": "^5.0",
-        "cmb2/cmb2": "^v2.5.1"
-    }
+        "cmb2/cmb2": "^2.10"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chris Reynolds",
+            "email": "me@chrisreynolds.io"
+        }
+    ]
 }
