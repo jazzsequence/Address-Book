@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4b2dcdeb357565843f949744746b20e",
+    "content-hash": "cfeec46c74789f65e58838cd9af36fd1",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -67,16 +67,16 @@
         },
         {
             "name": "johnbillion/args",
-            "version": "1.7.2",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnbillion/args.git",
-                "reference": "1aa5ff807b096a8e449f1401d2ebfba53b3258bc"
+                "reference": "8fa173a4d830ef2ce2f22679d3d09eb03bea95a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnbillion/args/zipball/1aa5ff807b096a8e449f1401d2ebfba53b3258bc",
-                "reference": "1aa5ff807b096a8e449f1401d2ebfba53b3258bc",
+                "url": "https://api.github.com/repos/johnbillion/args/zipball/8fa173a4d830ef2ce2f22679d3d09eb03bea95a9",
+                "reference": "8fa173a4d830ef2ce2f22679d3d09eb03bea95a9",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
                 "phpstan/phpstan-strict-rules": "^1.1",
                 "phpunit/phpunit": "^9.0",
                 "roots/wordpress-core-installer": "^1.0.0",
-                "roots/wordpress-full": "~6.2.0"
+                "roots/wordpress-full": "~6.3.0"
             },
             "type": "library",
             "extra": {
@@ -167,7 +167,7 @@
             "description": "I don't want to get into an argument about this.",
             "support": {
                 "issues": "https://github.com/johnbillion/args/issues",
-                "source": "https://github.com/johnbillion/args/tree/1.7.2"
+                "source": "https://github.com/johnbillion/args/tree/1.8.0"
             },
             "funding": [
                 {
@@ -175,20 +175,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-01T22:34:53+00:00"
+            "time": "2023-08-08T22:06:15+00:00"
         },
         {
             "name": "johnbillion/extended-cpts",
-            "version": "5.0.3",
+            "version": "5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnbillion/extended-cpts.git",
-                "reference": "4daaaef8acfff72f108e5f69c3f6cddb37b64a38"
+                "reference": "612a5f1c25a911d8d8b7a0fb2aa5b9ebed95607d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnbillion/extended-cpts/zipball/4daaaef8acfff72f108e5f69c3f6cddb37b64a38",
-                "reference": "4daaaef8acfff72f108e5f69c3f6cddb37b64a38",
+                "url": "https://api.github.com/repos/johnbillion/extended-cpts/zipball/612a5f1c25a911d8d8b7a0fb2aa5b9ebed95607d",
+                "reference": "612a5f1c25a911d8d8b7a0fb2aa5b9ebed95607d",
                 "shasum": ""
             },
             "require": {
@@ -231,7 +231,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -243,7 +243,7 @@
             "homepage": "https://github.com/johnbillion/extended-cpts/",
             "support": {
                 "issues": "https://github.com/johnbillion/extended-cpts/issues",
-                "source": "https://github.com/johnbillion/extended-cpts/tree/5.0.3"
+                "source": "https://github.com/johnbillion/extended-cpts/tree/5.0.5"
             },
             "funding": [
                 {
@@ -251,7 +251,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-14T00:07:21+00:00"
+            "time": "2023-08-21T00:09:00+00:00"
         }
     ],
     "packages-dev": [],
