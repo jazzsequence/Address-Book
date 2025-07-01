@@ -196,7 +196,7 @@ function get_old_meta( $meta_key, $revisions, $post_id ) {
  * @since  0.1.1
  */
 function clean_old_data( $current_thing, $old_things ) {
-	$old_things = array_filter( $old_things );
+	$old_things = is_array( $old_things ) ? array_filter( $old_things ) : [];
 	$index      = array_search( $current_thing, $old_things );
 	if ( false !== $index ) {
 		unset( $old_things[ $index ] );
