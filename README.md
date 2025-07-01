@@ -2,7 +2,7 @@
 **Contributors:**      Chris Reynolds  
 **Requires at least:** 4.4  
 **Tested up to:**      4.9.1  
-**Stable tag:**        0.3.3  
+**Stable tag:**        0.3.5  
 **License:**           GPLv3  
 **License URI:**       http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -18,6 +18,16 @@ A WordPress plugin for storing and maintaining addresses.
 2. Activate Address Book through the 'Plugins' menu in WordPress.
 
 ## Changelog ##
+
+### 0.3.5 ###
+
+* Set $old_things to an array if unset in https://github.com/jazzsequence/Address-Book/pull/21
+* Bump johnbillion/extended-cpts from 5.0.5 to 5.0.11 in https://github.com/jazzsequence/Address-Book/pull/20
+* Bump cmb2/cmb2 from 2.10.1 to 2.11.0 in https://github.com/jazzsequence/Address-Book/pull/19
+
+### 0.3.4 ###
+
+* Properly composerize the plugin
 
 ### 0.3.3 ###
 * Bump johnbillion/extended-cpts from 4.2.3 to 4.5.2 by @dependabot-preview in https://github.com/jazzsequence/Address-Book/pull/12
