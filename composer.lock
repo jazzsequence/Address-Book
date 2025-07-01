@@ -67,16 +67,16 @@
         },
         {
             "name": "johnbillion/args",
-            "version": "1.8.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnbillion/args.git",
-                "reference": "8fa173a4d830ef2ce2f22679d3d09eb03bea95a9"
+                "reference": "ef670a14ce0b9221cee0a39f076f4810a200d1ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnbillion/args/zipball/8fa173a4d830ef2ce2f22679d3d09eb03bea95a9",
-                "reference": "8fa173a4d830ef2ce2f22679d3d09eb03bea95a9",
+                "url": "https://api.github.com/repos/johnbillion/args/zipball/ef670a14ce0b9221cee0a39f076f4810a200d1ac",
+                "reference": "ef670a14ce0b9221cee0a39f076f4810a200d1ac",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
                 "phpstan/phpstan-strict-rules": "^1.1",
                 "phpunit/phpunit": "^9.0",
                 "roots/wordpress-core-installer": "^1.0.0",
-                "roots/wordpress-full": "~6.3.0"
+                "roots/wordpress-full": "~6.5.0"
             },
             "type": "library",
             "extra": {
@@ -156,7 +156,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -167,7 +167,7 @@
             "description": "I don't want to get into an argument about this.",
             "support": {
                 "issues": "https://github.com/johnbillion/args/issues",
-                "source": "https://github.com/johnbillion/args/tree/1.8.0"
+                "source": "https://github.com/johnbillion/args/tree/1.10.0"
             },
             "funding": [
                 {
@@ -175,50 +175,44 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-08T22:06:15+00:00"
+            "time": "2024-04-02T21:50:24+00:00"
         },
         {
             "name": "johnbillion/extended-cpts",
-            "version": "5.0.5",
+            "version": "5.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnbillion/extended-cpts.git",
-                "reference": "612a5f1c25a911d8d8b7a0fb2aa5b9ebed95607d"
+                "reference": "57f2e74155a12e7a37d07250e6739dbab5a732b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnbillion/extended-cpts/zipball/612a5f1c25a911d8d8b7a0fb2aa5b9ebed95607d",
-                "reference": "612a5f1c25a911d8d8b7a0fb2aa5b9ebed95607d",
+                "url": "https://api.github.com/repos/johnbillion/extended-cpts/zipball/57f2e74155a12e7a37d07250e6739dbab5a732b3",
+                "reference": "57f2e74155a12e7a37d07250e6739dbab5a732b3",
                 "shasum": ""
             },
             "require": {
-                "johnbillion/args": "^1.4.1",
+                "johnbillion/args": "^1.4.1 || ^2.0",
                 "php": ">= 7.4.0"
             },
             "require-dev": {
                 "automattic/phpcs-neutron-standard": "1.7.0",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
                 "johnbillion/falsey-assertequals-detector": "*",
-                "lucatume/wp-browser": "^3.0",
-                "phpcompatibility/phpcompatibility-wp": "^2",
-                "phpstan/phpstan": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9",
-                "roots/wordpress-core-installer": "^1.0.0",
-                "roots/wordpress-full": "~6.1.0",
-                "szepeviktor/phpstan-wordpress": "1.1.6",
-                "vlucas/phpdotenv": "^3",
-                "wp-cli/core-command": "^2",
-                "wp-cli/db-command": "^2",
+                "johnbillion/plugin-infrastructure": "dev-trunk",
+                "johnbillion/wp-compat": "0.3.1",
+                "lucatume/wp-browser": "3.2.3",
+                "phpcompatibility/phpcompatibility-wp": "2.1.5",
+                "phpstan/phpstan": "1.12.12",
+                "phpstan/phpstan-phpunit": "1.4.1",
+                "roots/wordpress-core-installer": "1.100.0",
+                "roots/wordpress-full": "*",
+                "szepeviktor/phpstan-wordpress": "1.3.5",
                 "wp-coding-standards/wpcs": "2.3.0"
-            },
-            "suggest": {
-                "seravo/wp-custom-bulk-actions": "Custom Bulk Actions",
-                "wpackagist-plugin/rewrite-testing": "Rewrite Rule Testing"
             },
             "type": "library",
             "extra": {
-                "wordpress-install-dir": "tests/wordpress"
+                "wordpress-install-dir": "vendor/wordpress/wordpress"
             },
             "autoload": {
                 "files": [
@@ -243,15 +237,9 @@
             "homepage": "https://github.com/johnbillion/extended-cpts/",
             "support": {
                 "issues": "https://github.com/johnbillion/extended-cpts/issues",
-                "source": "https://github.com/johnbillion/extended-cpts/tree/5.0.5"
+                "source": "https://github.com/johnbillion/extended-cpts/tree/5.0.11"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/johnbillion",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-08-21T00:09:00+00:00"
+            "time": "2024-11-30T23:16:17+00:00"
         }
     ],
     "packages-dev": [],
@@ -262,5 +250,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
