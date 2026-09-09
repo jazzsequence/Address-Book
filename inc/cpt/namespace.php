@@ -16,7 +16,28 @@ function register_address() {
 	register_extended_post_type( 'ab_address', [
 			'menu_icon' => 'dashicons-id',
 			'supports'  => [ 'title', 'revisions' ],
+
+			/*
+			 * Addresses are real people's names, postal addresses, phone numbers
+			 * and email addresses, and this plugin has no front end. Keep the post
+			 * type out of the public site entirely: single views, the archive,
+			 * search, feeds, sitemaps and the REST API.
+			 *
+			 * `show_ui` and `show_in_menu` are passed explicitly because
+			 * `register_post_type()` infers both from `public` when they are
+			 * omitted, which would take the admin screens down along with the
+			 * front end.
+			 */
+			'public'              => false,
+			'publicly_queryable'  => false,
 			'exclude_from_search' => true,
+			'has_archive'         => false,
+			'rewrite'             => false,
+			'query_var'           => false,
+			'show_in_rest'        => false,
+			'show_in_nav_menus'   => false,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
 		], [
 			'singular' => esc_html__( 'Address', 'address-book' ),
 			'plural'   => esc_html__( 'Addresses', 'address-book' ),
@@ -26,29 +47,52 @@ function register_address() {
 }
 
 /**
+ * Shared arguments keeping the Address taxonomies off the public site.
+ *
+ * Both taxonomies are only ever attached to ab_address, so a public term
+ * archive is just another way to list people by name. Same `show_ui` caveat as
+ * the post type above.
+ *
+ * @since  0.4
+ * @return array The taxonomy arguments.
+ */
+function private_taxonomy_args() {
+	return [
+		'public'             => false,
+		'publicly_queryable' => false,
+		'rewrite'            => false,
+		'query_var'          => false,
+		'show_in_rest'       => false,
+		'show_in_nav_menus'  => false,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+	];
+}
+
+/**
  * Registers the Family and Relationship taxonomies.
  *
  * @since 0.1
  */
 function register_taxonomies() {
-	register_extended_taxonomy( 'ab_family', 'ab_address', [
+	register_extended_taxonomy( 'ab_family', 'ab_address', array_merge( private_taxonomy_args(), [
 			// 'meta_box'      => 'simple', // Can use 'radio', 'dropdown', or a callback function.
 			'dashboard_glance' => true,   // Show this taxonomy in the 'At a Glance' widget.
 			// Custom columns.
 			'admin_cols'    => [],
-		], [
+		] ), [
 			'singular'      => esc_html__( 'Family', 'address-book' ),
 			'plural'        => esc_html__( 'Families', 'address-book' ),
 			'slug'          => 'family',
 		]
 	);
 
-	register_extended_taxonomy( 'relationship', 'ab_address', [
+	register_extended_taxonomy( 'relationship', 'ab_address', array_merge( private_taxonomy_args(), [
 			'meta_box'      => 'dropdown', // Can use 'radio', 'dropdown', or a callback function.
 			'dashboard_glance' => false,   // Show this taxonomy in the 'At a Glance' widget.
 			// Custom columns.
 			'admin_cols'    => [],
-		], [
+		] ), [
 			'singular'      => esc_html__( 'Relationship', 'address-book' ),
 			'plural'        => esc_html__( 'Relationships', 'address-book' ),
 			'slug'          => 'relationship',

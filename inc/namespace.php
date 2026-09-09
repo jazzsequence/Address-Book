@@ -10,6 +10,17 @@ namespace AddressBook;
 use AddressBook\CMB2;
 
 /**
+ * Option tracking the rewrite revision this install has flushed.
+ */
+const REWRITE_OPTION = 'address_book_rewrite_version';
+
+/**
+ * Bump this whenever the post type or taxonomy registration changes in a way
+ * that alters rewrite rules, so existing installs drop their stale rules.
+ */
+const REWRITE_VERSION = '0.4';
+
+/**
  * Bootstrap the plugin.
  *
  * Registers actions and filter required to run the plugin.
@@ -21,6 +32,7 @@ function bootstrap() {
 	add_action( 'init', __NAMESPACE__ . '\\CPT\\register_address' );
 	add_action( 'init', __NAMESPACE__ . '\\CPT\\register_taxonomies' );
 	add_action( 'init', __NAMESPACE__ . '\\CPT\\insert_relationships' );
+	add_action( 'init', __NAMESPACE__ . '\\maybe_flush_rewrite_rules', 99 );
 	add_action( 'save_post', __NAMESPACE__ . '\\CPT\\save_old_address', 10, 2 );
 	add_action( 'cmb2_init', __NAMESPACE__ . '\\CMB2\\address_meta' );
 	add_action( 'cmb2_init', __NAMESPACE__ . '\\CMB2\\past_addresses' );
@@ -33,6 +45,24 @@ function bootstrap() {
 	add_filter( 'enter_title_here', __NAMESPACE__ . '\\CPT\\change_title_placeholder' );
 	add_filter( '_wp_post_revision_fields', __NAMESPACE__ . '\\CPT\\old_address_revision_fields' );
 	add_filter( 'relationship_row_actions', __NAMESPACE__ . '\\CPT\\remove_relationship_row_actions', 10, 2 );
+}
+
+/**
+ * Flush rewrite rules once after the registration arguments change.
+ *
+ * Registering the post type with `rewrite => false` stops new rules being
+ * generated, but the /address/ rules an existing install already wrote to the
+ * database keep matching until they are flushed.
+ *
+ * @since 0.4
+ */
+function maybe_flush_rewrite_rules() {
+	if ( REWRITE_VERSION === get_option( REWRITE_OPTION ) ) {
+		return;
+	}
+
+	flush_rewrite_rules( false );
+	update_option( REWRITE_OPTION, REWRITE_VERSION );
 }
 
 /**
