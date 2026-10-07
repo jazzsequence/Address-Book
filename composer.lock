@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "cmb2/cmb2",
-            "version": "v2.12.0",
+            "version": "v2.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CMB2/CMB2.git",
-                "reference": "9a3686d42539ee3c1113bd09623f4ffbbee94397"
+                "reference": "0f2498434d97876f6f141fa1de99c8ec87840a4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/9a3686d42539ee3c1113bd09623f4ffbbee94397",
-                "reference": "9a3686d42539ee3c1113bd09623f4ffbbee94397",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/0f2498434d97876f6f141fa1de99c8ec87840a4a",
+                "reference": "0f2498434d97876f6f141fa1de99c8ec87840a4a",
                 "shasum": ""
             },
             "require": {
@@ -60,7 +60,7 @@
                 "issues": "https://github.com/CMB2/CMB2/issues",
                 "source": "http://wordpress.org/support/plugin/cmb2"
             },
-            "time": "2026-05-31T02:21:57+00:00"
+            "time": "2026-10-03T19:02:06+00:00"
         },
         {
             "name": "johnbillion/args",
